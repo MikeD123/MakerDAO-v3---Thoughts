@@ -72,24 +72,24 @@ _Note: Current Debt Ceiling is at 2.2M ETH_
 
 ### Q: How do we increase the debt ceiling then?
 
-   A: To increase the debt ceiling, complete more investment-chain trades to ensure fees are high proportion of the block reward.
+   A: To increase the debt ceiling, complete more on-chain trades relevant to the total block reward.
 
 ### Q: Oracles just disappear? Surely not?
-   A: No, they still are pushing their rates on chain, and they'll be utilized in the next section for determining the stability fee.
+   A: No, they still are pushing their rates on chain, and they'll be utilized in the next section.
    
 ## 🔮 Oracles Role
 
 The issue that occurs with a select few oracles presently is that:
 
-1) Largely a "security through obscurity" (not reveal who they are, which I understand the motivations, but hard to scale to a multi-trillion Dai float without ironing that out.)
+1) Largely a "security through obscurity". Do not reveal who they are, which I understand the motivations. Hard to scale to a multi-trillion Dai float without ironing this out. A fantastic start so far, but thinking further ahead it seems like the biggest vulnerability.
 
 2) Exchange selection is not verified or transparent. We all know that CMC is garbage, and only certain exchanges carry enough integrity to truly give an accurate price indication. To mitigate this, most trade venues evaluate this counter-party risk by hitting their books and discovering how much slippage there was. The less slippage, the more honest the numbers that are being claimed.
 
-3) Multi-variant environments. Exchange fee's on one platform, differ to another, and withdraw limits, regulations, etc... All wrap up into oracle pricing. Which is not entirely inaccurate, it's just misleading to a larger dataset that is relying on it. For comparison, it'd be like in 2017, the Kimchi premium 33% arbitrage between South Korea ETH price, and the USA ETH price. *_Additional context at the bottom for you.
+3) Multi-variant environments. Exchange fee's on one platform, differ to another, and withdraw limits, regulations, etc... All wrap up into oracle pricing. Which is not entirely inaccurate, it's just misleading to a larger dataset that is relying on it. For comparison, it'd be like in 2017, the Kimchi premium 33% arbitrage between South Korea ETH price, and the USA ETH price. _Additional context at the bottom for you.
 
 ### Q: So what do oracles do then?
 
-   A: They're piping in the price, from *eligible* exchanges which have been voted in by MKR holders. 
+   A: They're piping in the price, from *eligible* exchanges which have been voted in by MKR holders. E.g. Coinbase, Kraken, Gemini, Bitfinex, Binance, whoever. Messari "Real 10" perhaps?
 
 ## Stability fee
 
@@ -111,16 +111,21 @@ Collateral pool = 321%
 
 ### Q: What's the collateral pool got to do with it?
 
-   A: The system is not supposed to be excessively collateralized, it's supposed to be over-collateralized to a certain point. Beyond that, it becomes dorment and passive participation in the CDP system, which is not efficient and overtime will become largely problematic. I'd suggest dividing collateral pool requirements for CDP's locally & then MKR systemically. CDP's are 1.5x, 1.5x system wide over collateralized gives the passive CDP participants motivation to get out of their unused CDP, and avoid fees etc... With finite amount of CDP's, people should be putting the CDP to work and then leaving the system.  
+   A: The system is not supposed to be excessively collateralized, it's supposed to be over-collateralized to a certain point. Beyond that, it becomes dorment and passive participation in the CDP system, which is not efficient and overtime will become largely problematic. I'd suggest dividing collateral pool requirements for CDP's locally & then MKR systemically. CDP's are 1.5x, 1.5x system wide over collateralized gives the passive CDP participants motivation to get out of their unused CDP, and avoid fees etc... With finite amount of CDP's, people should be putting the CDP to work and then leaving the system.   
 
 ## 🏘📊Collateral Asset Category 
 
-Solving problems now, that are within the wheelhouse of expertise can be productized if they scale. This means that having the most on-chain verifiable oracles.
+The whole MakerDAO system is reliant on overcollateralizing to insulate risk. This works if the asset lives on-chain (Digitally native) because we have guarantees for being made whole. Recourse is a dimension of risk. The less certain or predictable it is, the more risk is introduced.
+
+With multi-collateral Dai I believe that before we choose assets we need to specify categories. Solving problems now, means they can be productized if they scale. Done correctly, it will result in multiple price feeds on-chain, which are the most battle tested and create an opportunity for productizing those feeds.
+
+First pass at some categories that I see:
+
 * Digitally native (ETH, REP, REN, ETC, BTC).
-// Cryptographic recourse, 100% verifiable.
+// Cryptographic recourse, 100% verifiable. Smart contract shows me getting paid if x scenario happens. 
 
 * Digital representation of non digital currencies (e.g. Fiatcoins, Digix, etc...).
-// Partial cryptographic recourse, partial legal system.
+// Part cryptographic recourse - Part legal system. Sure the smart contracts are in place, but also I have regulatory bodies I can speak to if I'm not honored my 1:1 redeeming the Fiatcoin from the vendor.
 
 * Digital representations of assets (Security tokens, property ownership put on chain, etc...
 // Under-developed legal system that'll take time to get caught up. Resulting in more risk due to more ambiguity in the legal recourse procedures.
