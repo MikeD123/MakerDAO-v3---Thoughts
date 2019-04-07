@@ -1,5 +1,6 @@
 ##  MakerDAO - Arbitrary To Algo 💡
 
+
 ![High level overview](https://cdn-images-1.medium.com/max/1067/1*h9KnYXn-DHZLqknRV3zk5A.png)
 
 MakerDAO's value proposition is stability. There's a few key things that effect stability, I believe the primary contributors are:
