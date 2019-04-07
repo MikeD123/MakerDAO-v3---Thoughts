@@ -1,5 +1,7 @@
 ##  MakerDAO - Arbitrary To Algo 💡
 
+![High level overview](https://cdn-images-1.medium.com/max/1067/1*h9KnYXn-DHZLqknRV3zk5A.png)
+
 MakerDAO's value proposition is stability. There's a few key things that effect stability, I believe the primary contributors are:
 
 - Education - How much does your audience understand about the system they're participating in? A long-term BTC holder is going to have stronger hands during a 30% drop in price, whereas a newer BTC holder may not be as informed, and thus "weak" hands in situations that may be short-term troublesome.
@@ -49,7 +51,6 @@ A: Two main reasons
 ##  📈 Debt ceiling
 
 ![Current Example](https://cdn-images-1.medium.com/max/1600/1*dyR8_deTfz1NVwPkqMOivg.png)
-
 The debt ceiling is for mitigating risk. Risk exists through poor price discovery relative to how large the system is. So we're going to compare the miner fees paid on eligible on-chain trades. The proportion of the total block-reward divided by the number of collateral types will help give guidance to the risk levels. 
 
 Debt ceiling is calculated as follows:
