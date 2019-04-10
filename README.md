@@ -5,7 +5,9 @@
 
 MakerDAO's value proposition is stability. There's a few key things that effect stability, I believe the primary contributors are:
 
-- Education - How much does your audience understand about the system they're participating in? A long-term BTC holder is going to have stronger hands during a 30% drop in price, whereas a newer BTC holder may not be as informed, and thus "weak" hands in situations that may be short-term troublesome.
+- Information - How much does your audience understand about the system they're participating in? A long-term BTC holder is going to have stronger hands during a 30% drop in price, whereas a newer BTC holder may not be as informed, and thus "weak" hands in situations that may be short-term troublesome.
+
+The blackswan risk for MakerDAO's system is not the same if Alice Smith was the only CDP holder compared to Joe Lubin being the only CDP holder.
 
 - Predictability - Any scenario where there's volatility, be it in cryptocurrency markets, or sports, or games carrying mixture of skill & chance. The more information that your opponent has in advance, the more they can attempt to predict a certain number of potential strategies that they may be faced with. Like knowing the lineup that will be played for the superbowl team, a coach will use that to mitigate any potential variance.
 
@@ -32,6 +34,8 @@ The further evolved a system becomes, the harder it is to make changes. Early de
 
 Below are a series of calculations that I believe construct a more liquid, more scalable & predictable system. Removing the key variables that challenge the core value prop. Stability.
 
+Theoretically hitting the reset button on the system. 0 CDP's open, 0 collateral, 0 collateral pool.
+
 ## 💸 CDP's 
 - 0 CDP's available in the system. To generate a CDP, a verifiable on-chain trade must be completed between the collateral and the stable asset. DAI/ETH trade.
 - 1 CDP is able to be generated for every on-chain trade that is verifiable (e.g. a DAI/ETH trade on Uniswap).
@@ -46,7 +50,7 @@ A: Remember the scene in the big-short where they found the mortgage brokers who
 
 A: Two main reasons
     a) System-wide this carries much broader diversification of participation over TWAP over n blocks. Stronger price             integrity.
-    b) Passive contribution *and* income to participants in other. While mitigating risk through price-discovery variation, it's passive adoption of DAI if they're being rewarded having not felt like they've done anything but perhaps buy a crypto-kittie with a debit card that went card --> fiat --> ETH --> DAI. Provides a stronger adoption for businesses/merchants/etc also... Startups like a Uniswap for example would be receiving all thisBuy some token on an exchange portal or something so passive.
+    b) Passive contribution *and* income to participants in other. While mitigating risk through diversified price-discovery , it's passive adoption of DAI if they're being rewarded having not felt like they've done anything. In fact, they've done something very meaningful, contribute to price discovery. Provides a stronger adoption for businesses/merchants/etc also... Startups like Uniswap for example could be receiving all this as an additional revenue for liquidity providers. As easy as buy some token on an exchange portal or something so passive. Plus all others built on top of those exchanges.
     
 
 ##  📈 Debt ceiling
@@ -81,6 +85,8 @@ _Note: Current Debt Ceiling is at 2.2M ETH_
    
 ## 🔮 Oracles Role
 
+Oracles are fundamental parts of the system. Right now, predictability gets effected here. There's a stronger way to do it IMO.
+
 The issue that occurs with a select few oracles presently is that:
 
 1) Largely a "security through obscurity". Do not reveal who they are, which I understand the motivations. Hard to scale to a multi-trillion Dai float without ironing this out. A fantastic start so far, but thinking further ahead it seems like the biggest vulnerability.
@@ -91,9 +97,9 @@ The issue that occurs with a select few oracles presently is that:
 
 ### Q: So what do oracles do then?
 
-   A: They're piping in the price, from *eligible* exchanges which have been voted in by MKR holders. E.g. Coinbase, Kraken, Gemini, Bitfinex, Binance, whoever. Messari "Real 10" perhaps?
+   A: They're piping in the price, from *eligible* exchanges which have been voted in by MKR holders. E.g. Coinbase, Kraken, Gemini, Bitfinex, Binance, whoever. Messari "Real 10" perhaps? Or whatever. The agreeance should be whether it is top of the orderbook, 100 order, 1000 USD order? Etc...
 
-## Stability fee
+## 🏆 Stability fee
 
 Relatively straight forward. We're going to find the gap between the two price feeds. On-chain price discovery of DAI/ETH and compare against USD/ETH price feeds from oracles.
 
@@ -110,10 +116,11 @@ Delta = 3.06%
 Collateral pool = 321%
 
 
-
 ### Q: What's the collateral pool got to do with it?
 
-   A: The system is not supposed to be excessively collateralized, it's supposed to be over-collateralized to a certain point. Beyond that, it becomes dorment and passive participation in the CDP system, which is not efficient and overtime will become largely problematic. I'd suggest dividing collateral pool requirements for CDP's locally & then MKR systemically. CDP's are 1.5x, 1.5x system wide over collateralized gives the passive CDP participants motivation to get out of their unused CDP, and avoid fees etc... With finite amount of CDP's, people should be putting the CDP to work and then leaving the system.   
+   A: The system is not supposed to be excessively collateralized, it's supposed to be over-collateralized to a certain point. Beyond that, it becomes dorment and passive participation in the CDP system, which is not efficient and overtime will become largely problematic. I'd suggest dividing collateral pool requirements for CDP's locally & then MKR systemically. CDP's are 1.5x, 1.5x system wide over collateralized gives the passive CDP participants motivation to get out of their unused CDP, and avoid fees etc... With finite amount of CDP's, people should be putting the CDP to work and then leaving the system.
+   
+
 
 ## 🏘📊Collateral Asset Category 
 
@@ -121,7 +128,7 @@ The whole MakerDAO system is reliant on overcollateralizing to insulate risk. Th
 
 With multi-collateral Dai I believe that before we choose assets we need to specify categories. Solving problems now, means they can be productized if they scale. Done correctly, it will result in multiple price feeds on-chain, which are the most battle tested and create an opportunity for productizing those feeds.
 
-First pass at some categories that I see:
+First pass at some categories that I see (in order of priority):
 
 * Digitally native (ETH, REP, REN, ETC, BTC).
 // Cryptographic recourse, 100% verifiable. Smart contract shows me getting paid if x scenario happens. 
@@ -140,7 +147,6 @@ Some earlier thoughts on the premise of predictability of incoming collateral, t
 
 Extra 1:  System Calculator (Thrown together) - https://docs.google.com/spreadsheets/d/1Udo_meYUy_knO3urrbBK8X56vnMpYERLhto2WBxpV7A/edit?usp=sharing
 
-Extra 2: Brain dump of thoughts for Louis - https://medium.com/p/8720fe5bb733 **
 
 Extra 3: That's because of additional factors like capital restrictions which means if you get the money into the country, you're unable to send it back out. Great if you're offering a remittance service to South Korea, not optimal if you're trying to find the trade, execute, realize profit, reinvest, rinse/repeat. The capital outflows is your choke point so you aren't able to realize the arbitrage. Thus the premium stays for far longer than most would expect it to. Comparatively in the real world, USD to China is done as USD to CNH very frequently. Because the on-shore restrictions that exist in China (like South Korean example). So what they do, they typically don't compare CNH/CNY because it's largely not apples to apples. They compare USD/CNY to USD/CNH and try use that.
 
