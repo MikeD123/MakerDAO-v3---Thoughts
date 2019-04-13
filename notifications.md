@@ -1,4 +1,5 @@
-# EIP - Selective Notification 
+# EIP - Selective Notification
+
 *Not designed for messaging, p2p, etc... This is basically the equivalent of a newsletter in your inbox (gross, I know, but crypto is not flooded by spam)*
 
 An lightweight notification system for teams aiming to communicate with their holders. Intended to provide the flexibility for notifying specific wallets based on balance or age of asset deposited into the wallet, etc...
