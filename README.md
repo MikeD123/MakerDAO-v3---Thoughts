@@ -110,15 +110,31 @@ D = Delta between on-chain price (as above) vs oracle pricing. Always Dai/collat
 Cp = Collateral pool. Could adjust this to a hard collateral ratio which would most naturally be 225%. 225% global pool is 1.5x of the local collateral requirements.
 
 Current example
-DAI/ETH = 143.24
-USD/ETH = 138.85
-Delta = 3.06%
-Collateral pool = 321%
 
+				
+DAI/ETH = 169.854
+
+USD/ETH = 162.935
+
+Delta = 4.07%
+
+Collateral pool = 387.00%
+
+**Result**
+
+Upper (1.5x collateral pool target) = 15.76%
+
+Lower (2.25x collateral pool target= 9.1654%
+
+**Stability Fee = Range 15.76% - 9.165%**
 
 ### Q: What's the collateral pool got to do with it?
 
-   A: The system is not supposed to be excessively collateralized, it's supposed to be over-collateralized to a certain point. Beyond that, it becomes dorment and passive participation in the CDP system, which is not efficient and overtime will become largely problematic. I'd suggest dividing collateral pool requirements for CDP's locally & then MKR systemically. CDP's are 1.5x, 1.5x system wide over collateralized gives the passive CDP participants motivation to get out of their unused CDP, and avoid fees etc... With finite amount of CDP's, people should be putting the CDP to work and then leaving the system.
+   A: The system is not supposed to be excessively collateralized, it's supposed to be over-collateralized to a certain point. Beyond that, it becomes dorment and passive participation in the CDP system, which is not efficient and overtime will become largely problematic. I'd suggest dividing collateral pool requirements for CDP's locally & then MKR systemically.
+
+The change in PETH (# of the underlying asset) has been within 2% over the month (March 13th - April 13th) where we've seen the price of the underlying shift 20%, resulting in the collateral pool ratio growing 305% - 385%.
+
+CDP's are 1.5x, 1.5x system wide over collateralized gives the passive CDP participants motivation to get out of their unused CDP, and avoid fees etc... With finite amount of CDP's, people should be putting the CDP to work and then leaving the system.
    
 
 
