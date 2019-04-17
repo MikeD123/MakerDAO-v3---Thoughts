@@ -48,7 +48,7 @@ function accept(address _sender, uint256 _count, uint256 _interval) returns (boo
 ```
 
 
-###
+### acceptable
 ```solidity
 function acceptable(address _owner, address _sender) constant returns (uint256 remaining)
 ```
@@ -62,7 +62,10 @@ The ```_note``` will then be accessible for ```_to```, who is the recipient. If 
 ```solidity
 function accept(address _sender, uint256 _count, uint256 _interval) returns (bool success)
 ```
-Allow _sender to notify you, a certain amount of times, up to the _count amount. If this function is called again it overwrites the current values specified. Granting a sender permission to notify me a pre-determined amount, given that the ```_interval``` has been passed. Some services may need more frequent updates than others. Quarterly reporting vs weekly voting, etc...  
+Allow ```_sender``` to notify you, a certain amount of times, up to the ```_count``` amount. If this function is called again it overwrites the current values specified. Granting a sender permission to notify me a pre-determined amount, given that the ```_interval``` has been passed. Some services may need more frequent updates than others. Quarterly reporting vs weekly voting, etc... Rough example for MakerDAO.
+```solidity
+function accept(address 0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2, uint256 9, uint256 5800)
+```
 
 ### acceptable
 ```solidity
@@ -71,3 +74,10 @@ function acceptable(address _owner, address _sender) constant returns (uint256 r
 Returns the duration until ```_sender``` is still allowed to notify ```_owner```.
 
 ## Thoughts appreciated!
+This is not my area of expertise, but definitely keen for this to exist and hopefully this can help create a standard for teams to have this notification capacity. Really hindering the ecosystem at the moment and given that these things take time and iterations, better to start sooner than later :)
+
+Thank you!
+
+Kind regards,
+
+Michael.
