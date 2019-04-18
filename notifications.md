@@ -87,3 +87,5 @@ Thank you!
 Kind regards,
 
 Michael.
+
+*Thanks for the feedback on things to clarify or consider. Appreciate it!
