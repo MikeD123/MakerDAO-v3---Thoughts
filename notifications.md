@@ -29,9 +29,18 @@ To mitigate spam we ensure recipients must grant permission per broadcaster and 
 
 Keeping all things consistent, the one certainty is that they're a holder of a wallet that has already interacted with the token contract, unless airdropped without permission.
 
+### Gas Usage
+
+The current design accomodates for broadcasting a notification to an address. Be it a single address, or many. One of the points of feedback received was gas usage to broadcast the same notification to many. Event handling can help surface notifications, but still requires some mechanics for 1 to many.
+
+As the ecosystem scales, there's likely more anonymity with DAO participants. Possible growth in value at risk for sharing a broadcast without permission, can still be supported in this lightweight design. For smaller broadcasts where gas is less of an issue all the way up to thousands of token holders needing to be notified.
+
+Solutions could implement something similar to what we have with televisions I'd imagine. No expert, but this is a similar outcome to be achieved, so there's likely a lot that could be drawn from that. Some sort of leakage (tts?) identifier but not relevant for this in itself, would come on top of this I guess.
+
+MakerDAO Message --> Uploaded to MakerDAO notification contract --> Event Triggered --> Wallets surface event
 
 ## Example functionality
-Add two functions ERC-20's interface, adding two functions:
+Add a few functions ERC-20's interface:
 ```solidity
 // Selective Notification Interface
 
@@ -41,10 +50,14 @@ contract selectiveNotification is ERC20 {
 function acceptable(address _owner, address _sender) constant returns (uint256 remaining)
 
   // Broadcaster - Send memo's and define who you want it to get to?
-function notification(address _to, string _note) returns (bool success)
+function notification(address _to, uint256 _group, string _note) returns (bool success)
 
   // Recipients - Recipient 
 function accept(address _sender, uint256 _count, uint256 _interval) returns (bool success)
+
+  // Notification - Wallets
+  
+  Event (notification --> Trigger to wallets like metamask etc... --> Wallet adds a notification if applicable to the wallet holder --> Wallet holder takes action.
 ```
 
 
@@ -52,26 +65,19 @@ function accept(address _sender, uint256 _count, uint256 _interval) returns (boo
 ```solidity
 function acceptable(address _owner, address _sender) constant returns (uint256 remaining)
 ```
+Returns the duration until ```_sender``` is allowed to notify ```_owner```.
+
 ### notification
 ```solidity
-function notification(address _to, string _note) returns (bool success)
+function notification(address _to, uint256 _group, string _note) returns (bool success)
 ```
-The ```_note``` will then be accessible for ```_to```, who is the recipient. If contract is specified, all holders can receive?
+The ```_note``` will then be accessible for ```_to```, who is the recipient. If contract is specified, all holders can receive? Added in ```_group``` which could pass through a specific demographic. E.g. You could have it passed in as duration of holdings, or as count of assets held. Targeting a certain tier of asset holders by how long, or by how much etc...
 
 ### accept
 ```solidity
 function accept(address _sender, uint256 _count, uint256 _interval) returns (bool success)
 ```
 Allow ```_sender``` to notify you, a certain amount of times, up to the ```_count``` amount. If this function is called again it overwrites the current values specified. Granting a sender permission to notify me a pre-determined amount, given that the ```_interval``` has been passed. Some services may need more frequent updates than others. Quarterly reporting vs weekly voting, etc... Rough example for MakerDAO.
-```solidity
-function accept(address 0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2, uint256 9, uint256 5800)
-```
-
-### acceptable
-```solidity
-function acceptable(address _owner, address _sender) constant returns (uint256 remaining)
-```
-Returns the duration until ```_sender``` is still allowed to notify ```_owner```.
 
 ## Thoughts appreciated!
 This is not my area of expertise, but definitely keen for this to exist and hopefully this can help create a standard for teams to have this notification capacity. Really hindering the ecosystem at the moment and given that these things take time and iterations, better to start sooner than later :)
