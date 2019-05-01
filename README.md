@@ -110,23 +110,23 @@ D = Delta between on-chain price (as above) vs oracle pricing. Always Dai/collat
 Cp = Collateral pool. Could adjust this to a hard collateral ratio which would most naturally be 225%. 225% global pool is 1.5x of the local collateral requirements.
 
 Current example
-
+*Note: Negative number implies a fee to be paid (E.g. stability fee). Positive number would imply a reward (Dai savings rate, or similar incentives to compress the ratio to be ~1:1)
 				
 DAI/ETH = 169.854
 
 USD/ETH = 162.935
 
-Delta = 4.07%
+Delta = -4.07%
 
 Collateral pool = 387.00%
 
 **Result**
 
-Upper (1.5x collateral pool target) = 15.76%
+Upper (1.5x collateral pool target) = -15.76%
 
-Lower (2.25x collateral pool target= 9.1654%
+Lower (2.25x collateral pool target= -9.1654%
 
-**Stability Fee = Range 15.76% - 9.165%**
+**Stability Fee = Range -15.76% <> -9.165%**
 
 ### Q: What's the collateral pool got to do with it?
 
