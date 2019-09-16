@@ -35,7 +35,19 @@ The current design accomodates for broadcasting a notification to an address. Be
 
 As the ecosystem scales, there's likely more anonymity with DAO participants. Possible growth in value at risk for sharing a broadcast without permission, can still be supported in this lightweight design. For smaller broadcasts where gas is less of an issue all the way up to thousands of token holders needing to be notified.
 
-Solutions could implement something similar to what we have with televisions I'd imagine. No expert, but this is a similar outcome to be achieved, so there's likely a lot that could be drawn from that. Some sort of leakage (tts?) identifier but not relevant for this in itself, would come on top of this I guess.
+Solutions could implement something similar to what we have with televisions I'd imagine. No expert, but this is a similar outcome to be achieved, so there's likely a lot that could be drawn from that. Some sort of leakage (tts?)
+
+**Edit for people asking:**
+
+tts, meaning "Traitor Tracing Scheme". What's used to help with broadcasting premium exlusive content like PayTV or a Pay-Per-View event, etc... If you couple this with collateral requirements, you get a neat way to avoid people not being dinged for breaking the agreement.
+
+**Traitor Tracing Scheme + Staked asset will be huge for new ground to be broken fyi - ELI5 below:**
+
+![ttsELI5](https://www.researchgate.net/profile/Moti_Yung/publication/221609254/figure/fig1/AS:669000493195266@1536513555314/The-Setup-of-a-Public-key-Traitor-Tracing-Scheme.png)
+
+
+* We ran a hackathon in early 2018 and this was largely my motivation to vote for the winner at the time. Huge upside for communications via commit/reveal structures as we did at Wyre for cross-chain BTC/DAI trading in a way that minimizes trust down to only the cryptography.
+
 
 MakerDAO Message --> Uploaded to MakerDAO notification contract --> Event Triggered --> Wallets surface event
 
